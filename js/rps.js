@@ -25,7 +25,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {  
+function playGame() {  
     let playerResult = 0;
     let computerResult = 0;
 
@@ -58,4 +58,4 @@ function game() {
     }
 }
 
-game();
+playGame();
