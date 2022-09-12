@@ -5,35 +5,47 @@ function getComputerChoice() {
     return randomComputerChoice;
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {  
     const win = `You won! ${playerSelection} beats ${computerSelection}.`;
     const lose = `You lost! ${computerSelection} beats ${playerSelection}.`;
-    const tie = `It's a tie! ${playerSelection} ties ${computerSelection}.`;
+    const tie = `It's a tie.`;
 
     if (playerSelection.toLowerCase() == "rock") {
-        return (computerSelection == "Scissors") ? alert(win)
-        : (computerSelection == "Paper") ? alert(lose)
-        : alert(tie);
+        return (computerSelection == "Scissors") ? roundResult.textContent = win
+        : (computerSelection == "Paper") ? roundResult.textContent = lose
+        : roundResult.textContent = tie;
     } else if (playerSelection.toLowerCase() == "paper") {
-        return (computerSelection == "Rock") ? alert(win)
-        : (computerSelection == "Scissors") ? alert(lose)
-        : alert(tie);
+        return (computerSelection == "Rock") ? roundResult.textContent = win
+        : (computerSelection == "Scissors") ? roundResult.textContent = lose
+        : roundResult.textContent = tie;
     } else if (playerSelection.toLowerCase() == "scissors") {
-        return (computerSelection == "Paper") ? alert(win)
-        : (computerSelection == "Rock") ? alert(lose)
-        : alert(tie);
+        return (computerSelection == "Paper") ? roundResult.textContent = win
+        : (computerSelection == "Rock") ? roundResult.textContent = lose
+        : roundResult.textContent = tie;
     }
 }
+
+const container = document.querySelector('.container');
+
+const playerAlert = document.createElement('div');
+container.appendChild(playerAlert);
+
+const computerAlert = document.createElement('div');
+container.appendChild(computerAlert);
+
+const roundResult = document.createElement('div');
+container.appendChild(roundResult);
 
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
 button.addEventListener('click', () => {
     const playerSelection = button.textContent;
-        alert(`You pick ${playerSelection}`);
-    const computerSelection = getComputerChoice();
-        alert(`The computer picks ${computerSelection}`);
+    playerAlert.textContent = `You picked ${playerSelection}`;
     
-    playRound(playerSelection, computerSelection);
+    const computerSelection = getComputerChoice();
+    computerAlert.textContent = `Computer picked ${computerSelection}`;
+
+    playRound(playerSelection,computerSelection);
 });
 });
 
