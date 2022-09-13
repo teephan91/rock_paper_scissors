@@ -51,9 +51,6 @@ const finalResult = document.createElement('div');
 container.appendChild(finalResult);
 
 function playGame() {  
-    let playerCount = 0;
-    let computerCount = 0;
-
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {            
@@ -65,19 +62,26 @@ function playGame() {
 
             const roundResult = playRound(playerSelection,computerSelection);
 
-            if (roundResult.includes("You won!")) {
-                playerCount++;
-                playerResult.textContent = `Player: ${playerCount}`;
-            } else if (roundResult.includes("You lost!")) {
-                computerCount++;
-                computerResult.textContent = `Computer: ${computerCount}`;
-            } else if (roundResult.includes("It's a tie!")) {
-                playerCount += 0;
-                computerCount += 0;
-                i--;
-            }         
+            keepCount(roundResult);
         });
     });
+}
+
+let playerCount = 0;
+let computerCount = 0;
+
+function keepCount(roundResult) {
+    if (roundResult.includes("You won!")) {
+        playerCount++;
+        playerResult.textContent = `Player: ${playerCount}`;
+    } else if (roundResult.includes("You lost!")) {
+        computerCount++;
+        computerResult.textContent = `Computer: ${computerCount}`;
+    } else if (roundResult.includes("It's a tie!")) {
+        playerCount += 0;
+        computerCount += 0;
+        i--;
+    }     
 }
             
 playGame();
