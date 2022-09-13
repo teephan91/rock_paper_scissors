@@ -27,6 +27,8 @@ function playRound(playerSelection, computerSelection) {
 
 const container = document.querySelector('.container');
 
+const allButtons = document.querySelectorAll('button');
+
 const playerAlert = document.createElement('div');
 playerAlert.textContent = "You picked: ";
 container.appendChild(playerAlert);
@@ -50,9 +52,10 @@ container.appendChild(computerResult);
 const finalResult = document.createElement('div');
 container.appendChild(finalResult);
 
-function playGame() {  
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach((button) => {
+const reloadButton = document.createElement('button');
+
+function playGame() { 
+    allButtons.forEach((button) => {
         button.addEventListener('click', () => {            
             const playerSelection = button.textContent;
             playerAlert.textContent = `You picked: ${playerSelection}`;
@@ -63,6 +66,8 @@ function playGame() {
             const roundResult = playRound(playerSelection,computerSelection);
 
             keepCount(roundResult);
+
+            gameResult();
         });
     });
 }
@@ -82,6 +87,32 @@ function keepCount(roundResult) {
         computerCount += 0;
         i--;
     }     
+}
+
+function gameResult() {
+    if (playerCount == 5) { 
+        disableButtons();
+        reloadPage();
+        return finalResult.textContent = "You won the game!";
+    } else if (computerCount == 5) {
+        disableButtons();
+        reloadPage();
+        return finalResult.textContent = "You lost the game!";
+    }
+}
+
+function disableButtons() {
+    allButtons.forEach((button) => {
+        button.disabled = true;
+    });
+}
+
+function reloadPage() {
+    container.appendChild(reloadButton);
+    reloadButton.textContent = "Play again?"
+    reloadButton.addEventListener('click', () => {
+        window.location.reload();
+    });
 }
             
 playGame();
