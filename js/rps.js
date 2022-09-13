@@ -11,75 +11,73 @@ function playRound(playerSelection, computerSelection) {
     const tie = `It's a tie.`;
 
     if (playerSelection.toLowerCase() == "rock") {
-        return (computerSelection == "Scissors") ? roundResult.textContent = win
-        : (computerSelection == "Paper") ? roundResult.textContent = lose
-        : roundResult.textContent = tie;
+        return (computerSelection == "Scissors") ? roundAlert.textContent = win
+        : (computerSelection == "Paper") ? roundAlert.textContent = lose
+        : roundAlert.textContent = tie;
     } else if (playerSelection.toLowerCase() == "paper") {
-        return (computerSelection == "Rock") ? roundResult.textContent = win
-        : (computerSelection == "Scissors") ? roundResult.textContent = lose
-        : roundResult.textContent = tie;
+        return (computerSelection == "Rock") ? roundAlert.textContent = win
+        : (computerSelection == "Scissors") ? roundAlert.textContent = lose
+        : roundAlert.textContent = tie;
     } else if (playerSelection.toLowerCase() == "scissors") {
-        return (computerSelection == "Paper") ? roundResult.textContent = win
-        : (computerSelection == "Rock") ? roundResult.textContent = lose
-        : roundResult.textContent = tie;
+        return (computerSelection == "Paper") ? roundAlert.textContent = win
+        : (computerSelection == "Rock") ? roundAlert.textContent = lose
+        : roundAlert.textContent = tie;
     }
 }
 
 const container = document.querySelector('.container');
 
 const playerAlert = document.createElement('div');
+playerAlert.textContent = "You picked: ";
 container.appendChild(playerAlert);
 
 const computerAlert = document.createElement('div');
+computerAlert.textContent = "Computer picked: ";
 container.appendChild(computerAlert);
 
-const roundResult = document.createElement('div');
-container.appendChild(roundResult);
+const roundAlert = document.createElement('div');
+roundAlert.textContent = "Win, Lose or Tie?";
+container.appendChild(roundAlert);
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-button.addEventListener('click', () => {
-    const playerSelection = button.textContent;
-    playerAlert.textContent = `You picked ${playerSelection}`;
+const playerResult = document.createElement('div');
+playerResult.textContent = "Player: 0";
+container.appendChild(playerResult);
+
+const computerResult = document.createElement('div');
+computerResult.textContent = "Computer: 0";
+container.appendChild(computerResult);
+
+const finalResult = document.createElement('div');
+container.appendChild(finalResult);
+
+function playGame() {  
+    let playerCount = 0;
+    let computerCount = 0;
+
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {            
+            const playerSelection = button.textContent;
+            playerAlert.textContent = `You picked: ${playerSelection}`;
     
-    const computerSelection = getComputerChoice();
-    computerAlert.textContent = `Computer picked ${computerSelection}`;
+            const computerSelection = getComputerChoice();
+            computerAlert.textContent = `Computer picked: ${computerSelection}`;
 
-    playRound(playerSelection,computerSelection);
-});
-});
+            const roundResult = playRound(playerSelection,computerSelection);
 
-// function playGame() {  
-//     let playerResult = 0;
-//     let computerResult = 0;
-
-//     for (let i = 0; i < 5; i++) {
-//         const playerSelection = prompt("Choose between Rock, Paper, or Scissors!");
-//         const computerSelection = getComputerChoice();
-//         const roundResult = playRound(playerSelection, computerSelection);
-
-//         alert(roundResult);
-        
-//         if (roundResult.includes("You won!")) {
-//             playerResult++;
-//         } else if (roundResult.includes("You lost!")) {
-//             computerResult++;
-//         } else if (roundResult.includes("It's a tie!")) {
-//             playerResult += 0;
-//             computerResult += 0;
-//             i--;
-//         }
-
-//         if (playerResult == 3) {  
-//             return alert("You won the game!");
-//             break;
-//         }
-
-//         if (computerResult == 3) { 
-//             return alert("You lost the game!");
-//             break;
-//         }
-//     }
-// }
-
-// playGame();
+            if (roundResult.includes("You won!")) {
+                playerCount++;
+                playerResult.textContent = `Player: ${playerCount}`;
+            } else if (roundResult.includes("You lost!")) {
+                computerCount++;
+                computerResult.textContent = `Computer: ${computerCount}`;
+            } else if (roundResult.includes("It's a tie!")) {
+                playerCount += 0;
+                computerCount += 0;
+                i--;
+            }         
+        });
+    });
+}
+            
+playGame();
