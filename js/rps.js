@@ -40,7 +40,7 @@ function playGame() {
 
             keepScore(roundResult);
 
-            gameResult();
+            displayGameResult();
         });
     });
 }
@@ -88,7 +88,7 @@ function keepScore(roundResult) {
     }     
 }
 
-function gameResult() {
+function displayGameResult() {
     if (playerScore == 5) { 
         disableButtons();
         reloadPage();
