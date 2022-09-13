@@ -1,30 +1,3 @@
-function getComputerChoice() {
-    const computerChoice = ["Rock", "Paper", "Scissors"];
-    let randomArrayElement = Math.floor(Math.random() * computerChoice.length);
-    let randomComputerChoice = computerChoice[randomArrayElement];
-    return randomComputerChoice;
-}
-
-function playRound(playerSelection, computerSelection) {  
-    const win = `You won! ${playerSelection} beats ${computerSelection}.`;
-    const lose = `You lost! ${computerSelection} beats ${playerSelection}.`;
-    const tie = `It's a tie.`;
-
-    if (playerSelection.toLowerCase() == "rock") {
-        return (computerSelection == "Scissors") ? roundAlert.textContent = win
-        : (computerSelection == "Paper") ? roundAlert.textContent = lose
-        : roundAlert.textContent = tie;
-    } else if (playerSelection.toLowerCase() == "paper") {
-        return (computerSelection == "Rock") ? roundAlert.textContent = win
-        : (computerSelection == "Scissors") ? roundAlert.textContent = lose
-        : roundAlert.textContent = tie;
-    } else if (playerSelection.toLowerCase() == "scissors") {
-        return (computerSelection == "Paper") ? roundAlert.textContent = win
-        : (computerSelection == "Rock") ? roundAlert.textContent = lose
-        : roundAlert.textContent = tie;
-    }
-}
-
 const container = document.querySelector('.container');
 
 const allButtons = document.querySelectorAll('button');
@@ -65,36 +38,62 @@ function playGame() {
 
             const roundResult = playRound(playerSelection,computerSelection);
 
-            keepCount(roundResult);
+            keepScore(roundResult);
 
             gameResult();
         });
     });
 }
 
-let playerCount = 0;
-let computerCount = 0;
+function getComputerChoice() {
+    const computerChoice = ["Rock", "Paper", "Scissors"];
+    let randomArrayElement = Math.floor(Math.random() * computerChoice.length);
+    let randomComputerChoice = computerChoice[randomArrayElement];
+    return randomComputerChoice;
+}
 
-function keepCount(roundResult) {
+function playRound(playerSelection, computerSelection) {  
+    const win = `You won! ${playerSelection} beats ${computerSelection}.`;
+    const lose = `You lost! ${computerSelection} beats ${playerSelection}.`;
+    const tie = `It's a tie.`;
+
+    if (playerSelection.toLowerCase() == "rock") {
+        return (computerSelection == "Scissors") ? roundAlert.textContent = win
+        : (computerSelection == "Paper") ? roundAlert.textContent = lose
+        : roundAlert.textContent = tie;
+    } else if (playerSelection.toLowerCase() == "paper") {
+        return (computerSelection == "Rock") ? roundAlert.textContent = win
+        : (computerSelection == "Scissors") ? roundAlert.textContent = lose
+        : roundAlert.textContent = tie;
+    } else if (playerSelection.toLowerCase() == "scissors") {
+        return (computerSelection == "Paper") ? roundAlert.textContent = win
+        : (computerSelection == "Rock") ? roundAlert.textContent = lose
+        : roundAlert.textContent = tie;
+    }
+}
+
+let playerScore = 0;
+let computerScore = 0;
+
+function keepScore(roundResult) {
     if (roundResult.includes("You won!")) {
-        playerCount++;
-        playerResult.textContent = `Player: ${playerCount}`;
+        playerScore++;
+        playerResult.textContent = `Player: ${playerScore}`;
     } else if (roundResult.includes("You lost!")) {
-        computerCount++;
-        computerResult.textContent = `Computer: ${computerCount}`;
+        computerScore++;
+        computerResult.textContent = `Computer: ${computerScore}`;
     } else if (roundResult.includes("It's a tie!")) {
-        playerCount += 0;
-        computerCount += 0;
-        i--;
+        playerScore += 0;
+        computerScore += 0;
     }     
 }
 
 function gameResult() {
-    if (playerCount == 5) { 
+    if (playerScore == 5) { 
         disableButtons();
         reloadPage();
         return finalResult.textContent = "You won the game!";
-    } else if (computerCount == 5) {
+    } else if (computerScore== 5) {
         disableButtons();
         reloadPage();
         return finalResult.textContent = "You lost the game!";
