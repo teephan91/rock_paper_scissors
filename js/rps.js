@@ -53,23 +53,52 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {  
-    const win = `You won! ${playerSelection} beats ${computerSelection}.`;
-    const lose = `You lost! ${computerSelection} beats ${playerSelection}.`;
-    const tie = `It's a tie.`;
+    const win = "You won!";
+    const lose = "You lost!";
+    const tie = "It's a tie!";
 
-    if (playerSelection.toLowerCase() == "rock") {
-        return (computerSelection == "Scissors") ? roundAlert.textContent = win
-        : (computerSelection == "Paper") ? roundAlert.textContent = lose
-        : roundAlert.textContent = tie;
-    } else if (playerSelection.toLowerCase() == "paper") {
-        return (computerSelection == "Rock") ? roundAlert.textContent = win
-        : (computerSelection == "Scissors") ? roundAlert.textContent = lose
-        : roundAlert.textContent = tie;
-    } else if (playerSelection.toLowerCase() == "scissors") {
-        return (computerSelection == "Paper") ? roundAlert.textContent = win
-        : (computerSelection == "Rock") ? roundAlert.textContent = lose
-        : roundAlert.textContent = tie;
+    switch (playerSelection) {
+        case "Rock":
+            if (computerSelection == "Scissors") {
+                roundAlert.textContent = win;
+                roundAlert.style.cssText = 'color: green; font-weight: 700;';
+            } else if (computerSelection == "Paper") {
+                roundAlert.textContent = lose;
+                roundAlert.style.cssText = 'color: red; font-weight: 700;';
+            } else {
+                roundAlert.textContent = tie;
+                roundAlert.style.cssText = 'color: blue; font-weight: 700;';
+            }
+        break;
+
+        case "Paper":
+            if (computerSelection == "Rock") {
+                roundAlert.textContent = win;
+                roundAlert.style.cssText = 'color: green; font-weight: 700;';
+            } else if (computerSelection == "Scissors") {
+                roundAlert.textContent = lose;
+                roundAlert.style.cssText = 'color: red; font-weight: 700;';
+            } else {
+                roundAlert.textContent = tie;
+                roundAlert.style.cssText = 'color: blue; font-weight: 700;';
+            }
+        break;
+
+        case "Scissors":
+            if (computerSelection == "Paper") {
+                roundAlert.textContent = win;
+                roundAlert.style.cssText = 'color: green; font-weight: 700;';
+            } else if (computerSelection == "Rock") {
+                roundAlert.textContent = lose;
+                roundAlert.style.cssText = 'color: red; font-weight: 700;';
+            } else {
+                roundAlert.textContent = tie;
+                roundAlert.style.cssText = 'color: blue; font-weight: 700;';
+            } 
+        break;      
     }
+
+    return roundAlert.textContent;
 }
 
 let playerScore = 0;
