@@ -3,23 +3,18 @@ const container = document.querySelector('.container');
 const allButtons = document.querySelectorAll('button');
 
 const playerAlert = document.createElement('div');
-playerAlert.textContent = "You picked: ";
 container.appendChild(playerAlert);
 
 const computerAlert = document.createElement('div');
-computerAlert.textContent = "Computer picked: ";
 container.appendChild(computerAlert);
 
 const roundAlert = document.createElement('div');
-roundAlert.textContent = "Win, Lose or Tie?";
 container.appendChild(roundAlert);
 
 const playerResult = document.createElement('div');
-playerResult.textContent = "Player: 0";
 container.appendChild(playerResult);
 
 const computerResult = document.createElement('div');
-computerResult.textContent = "Computer: 0";
 container.appendChild(computerResult);
 
 const finalResult = document.createElement('div');
