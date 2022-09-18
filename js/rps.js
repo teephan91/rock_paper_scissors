@@ -32,6 +32,9 @@ body.insertBefore(finalResult, footer);
 
 const reloadButton = document.createElement('button');
 
+const winningSound = new Audio('music/rps_winning_sound.m4a');
+const losingSound = new Audio('music/rps_losing_sound.m4a');
+
 function playGame() { 
     allButtons.forEach((button) => {
         button.addEventListener('click', () => {            
@@ -131,11 +134,13 @@ function displayGameResult() {
         disableButtons();
         reloadPage();
         finalResult.style.cssText = "color: green; font-family: 'Russo One', sans-serif; font-weight: 700; font-size: 40px;";
+        winningSound.play();
         return finalResult.textContent = "... You won the game! ...";
-    } else if (computerScore== 5) {
+    } else if (computerScore == 5) {
         disableButtons();
         reloadPage();
         finalResult.style.cssText = "color: red; font-family: 'Russo One', sans-serif; font-weight: 700; font-size: 40px;";
+        losingSound.play();
         return finalResult.textContent = "... You lost the game! ...";
     }
 }
