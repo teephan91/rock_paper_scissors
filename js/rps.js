@@ -32,10 +32,12 @@ function playGame() {
     allButtons.forEach((button) => {
         button.addEventListener('click', () => {            
             const playerSelection = button.textContent;
-            playerAlert.textContent = `You picked: ${playerSelection}`;
+            playerAlert.textContent = `${playerSelection}`;
+            playerAlert.style.cssText = 'color: black; font-weight: 700;';
     
             const computerSelection = getComputerChoice();
-            computerAlert.textContent = `Computer picked: ${computerSelection}`;
+            computerAlert.textContent = `${computerSelection}`;
+            computerAlert.style.cssText = 'color: black; font-weight: 700;';
 
             const roundResult = playRound(playerSelection,computerSelection);
 
