@@ -1,24 +1,30 @@
-const container = document.querySelector('.container');
-
 const allButtons = document.querySelectorAll('button');
 
+const container1 = document.querySelector('.container-1');
+const container2 = document.querySelector('.container-2');
+const container3 = document.querySelector('.container-3');
+const container4 = document.querySelector('.container-4');
+const container5 = document.querySelector('.container-5');
+
+const body = document.querySelector('body');
+
 const playerAlert = document.createElement('div');
-container.appendChild(playerAlert);
+container1.appendChild(playerAlert);
 
 const computerAlert = document.createElement('div');
-container.appendChild(computerAlert);
+container2.appendChild(computerAlert);
 
 const roundAlert = document.createElement('div');
-container.appendChild(roundAlert);
+container3.appendChild(roundAlert);
 
 const playerResult = document.createElement('div');
-container.appendChild(playerResult);
+container4.appendChild(playerResult);
 
 const computerResult = document.createElement('div');
-container.appendChild(computerResult);
+container5.appendChild(computerResult);
 
 const finalResult = document.createElement('div');
-container.appendChild(finalResult);
+body.appendChild(finalResult);
 
 const reloadButton = document.createElement('button');
 
@@ -131,7 +137,7 @@ function disableButtons() {
 }
 
 function reloadPage() {
-    container.appendChild(reloadButton);
+    body.appendChild(reloadButton);
     reloadButton.textContent = "Play again?"
     reloadButton.addEventListener('click', () => {
         window.location.reload();
