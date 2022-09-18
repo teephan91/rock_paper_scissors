@@ -18,9 +18,13 @@ const roundAlert = document.createElement('div');
 container3.appendChild(roundAlert);
 
 const playerResult = document.createElement('div');
+playerResult.textContent = "0";
+playerResult.style.cssText = 'color: green; font-weight: 700;';
 container4.appendChild(playerResult);
 
 const computerResult = document.createElement('div');
+computerResult.style.cssText = 'color: red; font-weight: 700;';
+computerResult.textContent = "0";
 container5.appendChild(computerResult);
 
 const finalResult = document.createElement('div');
@@ -108,13 +112,15 @@ let playerScore = 0;
 let computerScore = 0;
 
 function keepScore(roundResult) {
-    if (roundResult.includes("You won!")) {
+    if (roundResult.includes("won")) {
         playerScore++;
-        playerResult.textContent = `Player: ${playerScore}`;
-    } else if (roundResult.includes("You lost!")) {
+        playerResult.textContent = `${playerScore}`;
+        playerResult.style.cssText = 'color: green; font-weight: 700;';
+    } else if (roundResult.includes("lost")) {
         computerScore++;
-        computerResult.textContent = `Computer: ${computerScore}`;
-    } else if (roundResult.includes("It's a tie!")) {
+        computerResult.textContent = `${computerScore}`;
+        computerResult.style.cssText = 'color: red; font-weight: 700;';
+    } else if (roundResult.includes("tie")) {
         playerScore += 0;
         computerScore += 0;
     }     
