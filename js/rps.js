@@ -7,6 +7,7 @@ const container4 = document.querySelector('.container-4');
 const container5 = document.querySelector('.container-5');
 
 const body = document.querySelector('body');
+const footer = document.querySelector('footer');
 
 const playerAlert = document.createElement('div');
 container1.appendChild(playerAlert);
@@ -28,7 +29,7 @@ computerResult.textContent = "0";
 container5.appendChild(computerResult);
 
 const finalResult = document.createElement('div');
-body.appendChild(finalResult);
+body.insertBefore(finalResult, footer);
 
 const reloadButton = document.createElement('button');
 
@@ -147,7 +148,7 @@ function disableButtons() {
 }
 
 function reloadPage() {
-    body.appendChild(reloadButton);
+    body.insertBefore(reloadButton, footer);
     reloadButton.textContent = "Play again?"
     reloadButton.addEventListener('click', () => {
         window.location.reload();
