@@ -1,13 +1,12 @@
-const allButtons = document.querySelectorAll('button');
-
+const body = document.querySelector('body');
+const footer = document.querySelector('footer');
 const container1 = document.querySelector('.container-1');
 const container2 = document.querySelector('.container-2');
 const container3 = document.querySelector('.container-3');
 const container4 = document.querySelector('.container-4');
 const container5 = document.querySelector('.container-5');
 
-const body = document.querySelector('body');
-const footer = document.querySelector('footer');
+const allButtons = document.querySelectorAll('button');
 
 const playerAlert = document.createElement('div');
 container1.appendChild(playerAlert);
@@ -131,13 +130,13 @@ function displayGameResult() {
     if (playerScore == 5) { 
         disableButtons();
         reloadPage();
-        finalResult.style.cssText = 'color: green; font-weight: 700;';
-        return finalResult.textContent = "You won the game!";
+        finalResult.style.cssText = "color: green; font-family: 'Russo One', sans-serif; font-weight: 700; font-size: 40px;";
+        return finalResult.textContent = "... You won the game! ...";
     } else if (computerScore== 5) {
         disableButtons();
         reloadPage();
-        finalResult.style.cssText = 'color: red; font-weight: 700;';
-        return finalResult.textContent = "You lost the game!";
+        finalResult.style.cssText = "color: red; font-family: 'Russo One', sans-serif; font-weight: 700; font-size: 40px;";
+        return finalResult.textContent = "... You lost the game! ...";
     }
 }
 
