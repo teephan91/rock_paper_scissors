@@ -130,10 +130,12 @@ function displayGameResult() {
     if (playerScore == 5) { 
         disableButtons();
         reloadPage();
+        finalResult.style.cssText = 'color: green; font-weight: 700;';
         return finalResult.textContent = "You won the game!";
     } else if (computerScore== 5) {
         disableButtons();
         reloadPage();
+        finalResult.style.cssText = 'color: red; font-weight: 700;';
         return finalResult.textContent = "You lost the game!";
     }
 }
