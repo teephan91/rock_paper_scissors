@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+html,
+body {
+    height: 100%;
+}
+body {
+    background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 70px;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 40px;
+    margin: 0;
+}
+
+p,
+div {
+    font-family: Lato, sans-serif;
+    font-size: 25px;
+    color: #6b6b6b;
+}
+
+p {
+    margin: 0;
+}
+
+.section-1,
+.section-2 {
+    display: flex;
+    gap: 200px;
+    text-align: center;
+}
+
+.container-1,
+.container-2,
+.container-3,
+.container-4,
+.container-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed black;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+.container-1,
+.container-2,
+.container-3 {
+    width: 200px;
+    height: 45px;
+}
+
+.container-4,
+.container-5 {
+    width: 45px;
+    height: 45px;
+}
+
+button {
+    background-color: #66101f;
+    color: #ffffff;
+    font-family: Lato, sans-serif;
+    font-size: 25px;
+    padding: 20px 40px;
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    color: black;
+    background-color: #e8bf52;
+}
+
+footer {
+    text-align: center;
+    font-family: Lato, sans-serif;
+    font-size: 18px;
+    padding: 20px 0;
+    color:#6b6b6b;
+}
