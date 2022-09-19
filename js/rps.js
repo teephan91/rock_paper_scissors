@@ -32,8 +32,8 @@ body.insertBefore(finalResult, footer);
 
 const reloadButton = document.createElement('button');
 
-const winningSound = new Audio('music/rps_winning_sound.m4a');
-const losingSound = new Audio('music/rps_losing_sound.m4a');
+const winningSound = new Audio('sound/rps_winning_sound.m4a');
+const losingSound = new Audio('sound/rps_losing_sound.m4a');
 
 function playGame() { 
     allButtons.forEach((button) => {
