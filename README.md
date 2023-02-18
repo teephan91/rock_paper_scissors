@@ -7,9 +7,9 @@ This is a simple webpage that allows you to play Rock, Paper, and Scissors again
 **[CLICK HERE TO VIEW THE PROJECT](https://teephan91.github.io/rock_paper_scissors/)**
 
 ## Technology Used
-- [x] ![HTML](https://img.shields.io/badge/-HTML-000?style=flat&logo=html5&logoColor=394148&color=fac60c) ► **15.7%%** 
-- [x] ![CSS](https://img.shields.io/badge/-CSS-000?style=flat&logo=css3&logoColor=394148&color=fac60c) ► **17.6%** 
-- [x] ![JavaScript](https://img.shields.io/badge/-JavaScript-000?style=flat&logoColor=394148&logo=javascript&color=fac60c) ► **66.7%**
+- [x] ![HTML](https://img.shields.io/badge/-HTML-000?style=flat&logo=html5&logoColor=394148&color=fac60c) ► **17.7%%** 
+- [x] ![CSS](https://img.shields.io/badge/-CSS-000?style=flat&logo=css3&logoColor=394148&color=fac60c) ► **18.1%** 
+- [x] ![JavaScript](https://img.shields.io/badge/-JavaScript-000?style=flat&logoColor=394148&logo=javascript&color=fac60c) ► **64.2%**
 
 ## What I Did
 This project was my first foray into programming with Javascript. And boy, it was fun, challenging, and frustrating. To be honest, I didn't know where to start at the beginning. I remembered staring at the screen without knowing what to type. But it dawned on me later that this is programming and it's all about solving problems, not typing. So I broke things down into smaller chunks and worked from there. 
