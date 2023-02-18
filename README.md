@@ -1,4 +1,4 @@
-# Rock_Paper_Scissors
+# Rock-Paper-Scissors
 ![RPS_screenshot](https://user-images.githubusercontent.com/101987153/219882412-34b7cd6f-b15a-46d4-a53a-fd734a727a57.JPG)
 
 ## About
